@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateIntegration, parseDocumentation } from '@/app/lib/claude';
 
+// Vercel Pro: up to 300 s. Hobby plan ignores this and caps at 10 s.
+export const maxDuration = 120;
+
 export async function POST(req: NextRequest) {
   try {
     const { docText, selectedOutputs, userKey, parsedDoc } = await req.json();

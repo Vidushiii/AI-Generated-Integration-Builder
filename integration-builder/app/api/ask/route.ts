@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { askAboutDoc } from '@/app/lib/claude';
 
+export const maxDuration = 30;
+
 export async function POST(req: NextRequest) {
   try {
     const { docText, question, userKey } = await req.json();
